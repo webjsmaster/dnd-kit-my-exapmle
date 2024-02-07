@@ -8,7 +8,8 @@ const Menu = () => {
     const menu = [
         {title: 'Dnd Kit', path: '/dnd-kit'},
         {title: 'Dnd container', path: '/dnd-container'},
-        {title: 'Dnd My List Fields', path: '/dnd-fields'},
+        {title: 'Dnd Free', path: '/dnd-free'},
+        {title: 'Dnd My Free', path: '/dnd-my-free'},
     ]
 
     const pathname = usePathname()

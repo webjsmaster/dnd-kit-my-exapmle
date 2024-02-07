@@ -1,0 +1,11 @@
+.image {
+  @apply -rotate-90 transition-all w-4 h-4;
+}
+
+.imageActive {
+  @apply rotate-0 transition-all;
+}
+
+.iconContainer {
+  @apply w-6 h-6 bg-[#3ADAD9] rounded-full flex justify-center items-center;
+}
