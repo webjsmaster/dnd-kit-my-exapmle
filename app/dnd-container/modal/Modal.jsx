@@ -1,7 +1,6 @@
 'use client';
 
 import {useCallback, useEffect, useRef} from 'react';
-import FocusTrap from 'focus-trap-react';
 import {AnimatePresence, motion} from 'framer-motion';
 import clsx from 'clsx';
 
@@ -27,30 +26,31 @@ export default function Modal({children, showModal, setShowModal, containerClass
         <AnimatePresence>
             {showModal && (
                 <>
-                    <FocusTrap focusTrapOptions={{initialFocus: false}}>
-                        <motion.div
-                            ref={desktopModalRef}
-                            key="desktop-modal"
-                            className="fixed inset-0 z-40 hidden min-h-screen items-center justify-center md:flex text-amber-500"
-                            initial={{scale: 0.95, opacity: 0}}
-                            animate={{scale: 1, opacity: 1}}
-                            exit={{scale: 0.95, opacity: 0}}
-                            onMouseDown={(e) => {
-                                if (desktopModalRef.current === e.target) {
-                                    setShowModal(false);
-                                }
-                            }}
+                    {/*<FocusTrap focusTrapOptions={{initialFocus: false}}>*/}
+                    <motion.div
+                        ref={desktopModalRef}
+                        key="desktop-modal"
+                        className="fixed inset-0 z-40 min-h-screen items-center justify-center flex text-amber-500"
+                        initial={{scale: 0.95, opacity: 0}}
+                        animate={{scale: 1, opacity: 1}}
+                        exit={{scale: 0.95, opacity: 0}}
+                        onMouseDown={(e) => {
+                            if (desktopModalRef.current === e.target) {
+                                setShowModal(false);
+                            }
+                        }}
+                    >
+                        <div
+                            className={clsx(
+                                `overflow relative w-full max-w-lg transform rounded-xl border border-gray-200 bg-white p-6 text-left shadow-2xl transition-all`,
+                                containerClasses,
+                            )}
                         >
-                            <div
-                                className={clsx(
-                                    `overflow relative w-full max-w-lg transform rounded-xl border border-gray-200 bg-white p-6 text-left shadow-2xl transition-all`,
-                                    containerClasses,
-                                )}
-                            >
-                                {children}
-                            </div>
-                        </motion.div>
-                    </FocusTrap>
+                            tests
+                            {children}
+                        </div>
+                    </motion.div>
+                    {/*</FocusTrap>*/}
                     <motion.div
                         key="desktop-backdrop"
                         className="fixed inset-0 z-30 bg-gray-100 bg-opacity-10 backdrop-blur"

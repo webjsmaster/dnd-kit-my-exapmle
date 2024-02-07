@@ -9,7 +9,6 @@ import Modal from "@/app/dnd-container/modal/Modal";
 import Input from "@/app/dnd-container/input/Input";
 
 const DndContainer = () => {
-
     const [containers, setContainers] = useState([]);
     const [activeId, setActiveId] = useState(null);
     const [currentContainerId, setCurrentContainerId] = useState();
@@ -274,6 +273,7 @@ const DndContainer = () => {
             over &&
             active.id !== over.id
         ) {
+            console.log('[180] 🚧: CONTAINER ')
             // Find the active and over container
             const activeContainer = findValueOfItems(active.id, 'item');
             const overContainer = findValueOfItems(over.id, 'container');
@@ -345,7 +345,7 @@ const DndContainer = () => {
                 </button>
             </div>
             <div className="mt-10">
-                <div className="grid grid-cols-3 gap-6">
+                <div className="flex flex-col">
                     <DndContext
                         id={'cont-1'}
                         sensors={sensors}

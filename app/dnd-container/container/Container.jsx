@@ -42,7 +42,6 @@ const Container = ({id, children, title, description, onAddItem}) => {
                     Drag Handle
                 </button>
             </div>
-
             {children}
             <button onClick={onAddItem} className='text-gray-800'>
                 Add Item
